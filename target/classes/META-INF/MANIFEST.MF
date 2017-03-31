@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1490735857457
+Build-Jdk: 1.8.0_66
+Built-By: nilson
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
+Bundle-Description: CXF Example using JAX-RS
+Bundle-DocURL: http://www.apache.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache ServiceMix :: Examples :: CXF JAX-RS OSGI
+Bundle-SymbolicName: cxf-jaxrs
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 7.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.servicemix.examples.cxf.jaxrs;version="7.0.0"
+Import-Package: javax.xml.bind.annotation;version="[2.2,3)",javax.ws.rs;
+ version="[2.0,3)",javax.wsdl,javax.xml.bind;version="[2.2,3)",javax.ws.
+ rs.core;version="[2.0,3)",org.springframework.beans.factory.config,org.
+ apache.commons.httpclient;version="[3.1,4)",org.apache.commons.httpclie
+ nt.methods;version="[3.1,4)",org.apache.felix.service.command;version="
+ [0.16,1)",org.apache.felix.gogo.commands;version="[0.16,1)",org.apache.
+ karaf.shell.console;version="[4.0,5)",org.apache.karaf.shell.commands;v
+ ersion="[4.0,5)"
+Import-Service: org.osgi.framework.BundleContext;multiple:=false
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-3.0.0.201509101326
