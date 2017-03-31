@@ -1,6 +1,5 @@
 package org.apache.servicemix.examples.cxf.info;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,22 +8,14 @@ import org.apache.servicemix.examples.cxf.model.Service;
 import org.apache.servicemix.examples.cxf.model.Storage;
 import org.apache.servicemix.examples.cxf.util.InfraUtil;
 
-import kamon.sigar.SigarProvisioner;
-
 public class GatewayInfo {
 
-	// This constructor could be the cause of the error in libsigar-amd64-linux.so in java.library.path
-	// Possible solution will be to put the SigarProvisioner.provision () within the classes that use the sigar variable
+	// This constructor could be the cause of the error in
+	// libsigar-amd64-linux.so in java.library.path
+	// Possible solution will be to put the SigarProvisioner.provision () within
+	// the classes that use the sigar variable
 	public GatewayInfo() {
-		try {
-			//final File location = new File("target/lib");
-			final File location = new File("src/main/resources/META-INF/lib");	
-			SigarProvisioner.provision(location);
-			System.out.println("Configuration successfully completed!");
-		} catch (Exception e) {
-			System.out.println("Error in providing the SIGAR library.");
-			e.printStackTrace();
-		}
+
 	}
 
 	// description of OS in use
@@ -33,7 +24,7 @@ public class GatewayInfo {
 	}
 
 	// to be defined
-	public String getModel() {		
+	public String getModel() {
 		return "0.11.2";
 	}
 
@@ -46,37 +37,39 @@ public class GatewayInfo {
 	public String getFirmware() {
 		return "2.1.0";
 	}
-	
+
 	// on-off used server side opportunistically
 	public boolean isStatus() {
 		// possible functionality is to use the method to return error status.
 		return true;
 	}
-	
+
 	// returns the list of components in existing stores
 	public List<Storage> getStorage() {
 		List<Storage> listSim = new ArrayList<Storage>();
-		
+
 		Storage storage;
-		
-		for(int i = 0; i < 3; i++) {
+
+		for (int i = 0; i < 3; i++) {
 			storage = new Storage();
-			
+
 			storage.setDeviceName("/dev/sda1");
-			storage.setFreeSpaceKB(3*100*12*5*i);
+			storage.setFreeSpaceKB(3 * 100 * 12 * 5 * i);
 			storage.setTotalSizeKB(288237920);
 			storage.setMountPoint("/");
 			storage.setOsSpecificFSType("ext4");
-			
+
 			listSim.add(storage);
 		}
 		return listSim;
 	}
-	// method for the server side, but the client can register its actualization if possible
+
+	// method for the server side, but the client can register its actualization
+	// if possible
 	public String getLastUpdate() {
 		return InfraUtil.getDateHour();
 	}
-	
+
 	// returns the battery level in percent
 	// if it is not possible to use the command will be returned -1
 	public int baterryLevel() {
@@ -86,8 +79,8 @@ public class GatewayInfo {
 	// returns the total of memory
 	public long getTotalMemory() {
 		return 10241524;
-	}	
-	
+	}
+
 	// returns the total of used memory
 	public long getUsedMemory() {
 		return 10245;
@@ -112,27 +105,26 @@ public class GatewayInfo {
 	public List<CPU> getCPU() {
 		CPU cpu;
 		List<CPU> listCPUInfoModel = new ArrayList<CPU>();
-		
-		for(int i = 0; i < 3; i++) {
+
+		for (int i = 0; i < 3; i++) {
 			cpu = new CPU();
-					
+
 			cpu.setVendor("Intel");
-			cpu.setClock(i+1);
-			cpu.setTotalCores(i+1);
+			cpu.setClock(i + 1);
+			cpu.setTotalCores(i + 1);
 			cpu.setModel("Intel 4004");
-			
+
 			listCPUInfoModel.add(cpu);
 		}
-		
+
 		return listCPUInfoModel;
 	}
 
 	// returns the mac address
 	public String getMac() {
-		return null;
-		
+		return InfraUtil.getMacAddress();
 	}
-	
+
 	// returns the ip address
 	public String getIp() {
 		return InfraUtil.getIpMachine();
@@ -140,8 +132,8 @@ public class GatewayInfo {
 
 	// returns the hostname
 	public String getHostName() {
-		return "RaspberryHostName"; 
-		
+		return "RaspberryHostName";
+
 	}
 
 	// returns the location
@@ -157,7 +149,7 @@ public class GatewayInfo {
 	}
 
 	// returns a list with the existing network interfaces
-	// untested method may then display errors	
+	// untested method may then display errors
 	public String[] getIntefaceNetwork() {
 		return null;
 	}

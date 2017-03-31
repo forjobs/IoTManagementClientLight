@@ -42,7 +42,8 @@ public class InfraUtil {
 			Enumeration<NetworkInterface> enumNetWork = NetworkInterface.getNetworkInterfaces();
 			while (enumNetWork.hasMoreElements()) {
 				NetworkInterface networkInterface = enumNetWork.nextElement();
-				if (networkInterface.getName().startsWith("eth") || networkInterface.getName().startsWith("wlp3s0")
+				if (networkInterface.getName().startsWith("eth") || networkInterface.getName().startsWith("eth0")
+						|| networkInterface.getName().startsWith("wlp3s0")
 						|| networkInterface.getName().startsWith("enp2s0")) {
 					Enumeration<InetAddress> ds = networkInterface.getInetAddresses();
 					while (ds.hasMoreElements()) {
