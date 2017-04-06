@@ -10,7 +10,6 @@ import org.apache.servicemix.examples.cxf.info.GatewayInfo;
 import org.apache.servicemix.examples.cxf.model.CPU;
 import org.apache.servicemix.examples.cxf.model.Gateway;
 import org.apache.servicemix.examples.cxf.model.Service;
-import org.apache.servicemix.examples.cxf.model.Storage;
 
 //import org.json.JSONObject;
 
@@ -44,7 +43,7 @@ public class GatewayService {
 		gateway.setFreeMemory(this.getFreeMemoryService());
 		gateway.setUsedProcessor(this.getUsedProcessorService());
 		gateway.setFreeProcessor(this.getFreeProcessorService());		
-		gateway.setCpu(this.getCPUService());
+		//gateway.setCpu(this.getCPUService());
 		gateway.setMac(this.getMacService());
 		gateway.setIp(this.getIpService());
 		gateway.setHostName(this.getHostNameService());
@@ -82,7 +81,7 @@ public class GatewayService {
 	}
 
 	// returns the list of components in existing stores
-	public List<Storage> getStorageService() {
+	public long getStorageService() {
 		return gatewayInfo.getStorage();
 	}
 

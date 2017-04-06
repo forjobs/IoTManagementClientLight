@@ -2,10 +2,10 @@ package org.apache.servicemix.examples.cxf.info;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.servicemix.examples.cxf.model.CPU;
 import org.apache.servicemix.examples.cxf.model.Service;
-import org.apache.servicemix.examples.cxf.model.Storage;
 import org.apache.servicemix.examples.cxf.util.InfraUtil;
 
 public class GatewayInfo {
@@ -45,23 +45,25 @@ public class GatewayInfo {
 	}
 
 	// returns the list of components in existing stores
-	public List<Storage> getStorage() {
-		List<Storage> listSim = new ArrayList<Storage>();
-
-		Storage storage;
-
-		for (int i = 0; i < 3; i++) {
-			storage = new Storage();
-
-			storage.setDeviceName("/dev/sda1");
-			storage.setFreeSpaceKB(3 * 100 * 12 * 5 * i);
-			storage.setTotalSizeKB(288237920);
-			storage.setMountPoint("/");
-			storage.setOsSpecificFSType("ext4");
-
-			listSim.add(storage);
-		}
-		return listSim;
+	public long getStorage() {
+//		List<Storage> listSim = new ArrayList<Storage>();
+//
+//		Storage storage;
+//
+//		for (int i = 0; i < 3; i++) {
+//			storage = new Storage();
+//
+//			storage.setDeviceName("/dev/sda1");
+//			storage.setFreeSpaceKB(3 * 100 * 12 * 5 * i);
+//			storage.setTotalSizeKB(288237920);
+//			storage.setMountPoint("/");
+//			storage.setOsSpecificFSType("ext4");
+//
+//			listSim.add(storage);
+//		}
+//		return listSim;
+				
+		return new Random().nextInt(19700621);
 	}
 
 	// method for the server side, but the client can register its actualization
@@ -73,32 +75,32 @@ public class GatewayInfo {
 	// returns the battery level in percent
 	// if it is not possible to use the command will be returned -1
 	public int baterryLevel() {
-		return 95;
+		return new Random().nextInt(100);
 	}
 
 	// returns the total of memory
 	public long getTotalMemory() {
-		return 10241524;
+		return new Random().nextInt(19700621);
 	}
 
 	// returns the total of used memory
 	public long getUsedMemory() {
-		return 10245;
+		return new Random().nextInt(19700621);
 	}
 
 	// returns the total of free memory
 	public long getFreeMemory() {
-		return 1524;
+		return new Random().nextInt(19700621);
 	}
 
 	// returns the percentage value of the processor's capacity used
 	public double getUsedProcessor() {
-		return 37.55;
+		return new Random().nextDouble() * 100;
 	}
 
 	// returns the percentage value of the free processor capacity
 	public double getFreeProcessor() {
-		return 62.45;
+		return new Random().nextDouble() * 100;
 	}
 
 	// returns information about CPU characteristics

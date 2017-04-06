@@ -1,7 +1,5 @@
 package org.apache.servicemix.examples.cxf.model;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Gateway")
@@ -12,23 +10,27 @@ public class Gateway { // class with the gateway properties
 	private String manufacturer; // to be defined
 	private String firmware; // to be defined
 	private boolean status; // on-off used server side opportunistically
-	private List<Storage> storage; // returns the list of components in existing stores
-	private String lastUpdate; // Method for the server side, but the client can register its actualization if possible
+	private long storage; // returns the list of components in existing stores
+	private String lastUpdate; // Method for the server side, but the client can
+								// register its actualization if possible
 	private int baterryLevel; // returns the battery level in percent
 	private long totalMemory; // returns the total of memory
 	private long usedMemory; // returns the total of used memory
 	private long freeMemory; // returns the total of free memory
-	private double usedProcessor; // returns the percentage value of the processor's capacity used
-	private double freeProcessor; // returns the percentage value of the free processor capacity
-	private List<CPU> cpu; // returns information about CPU characteristics
+	private double usedProcessor; // returns the percentage value of the
+									// processor's capacity used
+	private double freeProcessor; // returns the percentage value of the free
+									// processor capacity
+	//private List<CPU> cpu; // returns information about CPU characteristics
 	private String mac; // returns the mac address
 	private String ip; // returns the ip address
 	private String hostName; // returns the hostname
 	private String location; // returns the fake location
-	//private List<Service> service = new ArrayList<Service>(); // returns the list of services
-	//private String[] intefaceNetwork; //returns a list with the existing network interfaces
-	
-	
+	// private List<Service> service = new ArrayList<Service>(); // returns the
+	// list of services
+	// private String[] intefaceNetwork; //returns a list with the existing
+	// network interfaces
+
 	public String getDescription() {
 		return description;
 	}
@@ -69,11 +71,11 @@ public class Gateway { // class with the gateway properties
 		this.status = status;
 	}
 
-	public List<Storage> getStorage() {
+	public long getStorage() {
 		return storage;
 	}
 
-	public void setStorage(List<Storage> storage) {
+	public void setStorage(long storage) {
 		this.storage = storage;
 	}
 
@@ -92,7 +94,7 @@ public class Gateway { // class with the gateway properties
 	public void setBaterryLevel(int baterryLevel) {
 		this.baterryLevel = baterryLevel;
 	}
-	
+
 	public long getTotalMemory() {
 		return totalMemory;
 	}
@@ -133,13 +135,13 @@ public class Gateway { // class with the gateway properties
 		this.freeProcessor = freeProcessor;
 	}
 
-	public List<CPU> getCpu() {
-		return cpu;
-	}
-
-	public void setCpu(List<CPU> cpu) {
-		this.cpu = cpu;
-	}
+//	public List<CPU> getCpu() {
+//		return cpu;
+//	}
+//
+//	public void setCpu(List<CPU> cpu) {
+//		this.cpu = cpu;
+//	}
 
 	public String getMac() {
 		return mac;
@@ -156,7 +158,7 @@ public class Gateway { // class with the gateway properties
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
-	
+
 	public String getHostName() {
 		return hostName;
 	}
@@ -173,19 +175,19 @@ public class Gateway { // class with the gateway properties
 		this.location = location;
 	}
 
-//	public List<Service> getService() {
-//		return service;
-//	}
-//
-//	public void setService(List<Service> service) {
-//		this.service = service;
-//	}
-//
-//	public String[] getIntefaceNetwork() {
-//		return intefaceNetwork;
-//	}
-//
-//	public void setIntefaceNetwork(String[] intefaceNetwork) {
-//		this.intefaceNetwork = intefaceNetwork;
-//	}
+	// public List<Service> getService() {
+	// return service;
+	// }
+	//
+	// public void setService(List<Service> service) {
+	// this.service = service;
+	// }
+	//
+	// public String[] getIntefaceNetwork() {
+	// return intefaceNetwork;
+	// }
+	//
+	// public void setIntefaceNetwork(String[] intefaceNetwork) {
+	// this.intefaceNetwork = intefaceNetwork;
+	// }
 }
