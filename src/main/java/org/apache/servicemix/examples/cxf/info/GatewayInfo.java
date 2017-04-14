@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.servicemix.examples.cxf.model.Bundler;
 import org.apache.servicemix.examples.cxf.model.CPU;
 import org.apache.servicemix.examples.cxf.model.Service;
 import org.apache.servicemix.examples.cxf.util.InfraUtil;
@@ -46,23 +47,23 @@ public class GatewayInfo {
 
 	// returns the list of components in existing stores
 	public long getStorage() {
-//		List<Storage> listSim = new ArrayList<Storage>();
-//
-//		Storage storage;
-//
-//		for (int i = 0; i < 3; i++) {
-//			storage = new Storage();
-//
-//			storage.setDeviceName("/dev/sda1");
-//			storage.setFreeSpaceKB(3 * 100 * 12 * 5 * i);
-//			storage.setTotalSizeKB(288237920);
-//			storage.setMountPoint("/");
-//			storage.setOsSpecificFSType("ext4");
-//
-//			listSim.add(storage);
-//		}
-//		return listSim;
-				
+		// List<Storage> listSim = new ArrayList<Storage>();
+		//
+		// Storage storage;
+		//
+		// for (int i = 0; i < 3; i++) {
+		// storage = new Storage();
+		//
+		// storage.setDeviceName("/dev/sda1");
+		// storage.setFreeSpaceKB(3 * 100 * 12 * 5 * i);
+		// storage.setTotalSizeKB(288237920);
+		// storage.setMountPoint("/");
+		// storage.setOsSpecificFSType("ext4");
+		//
+		// listSim.add(storage);
+		// }
+		// return listSim;
+
 		return new Random().nextInt(19700621);
 	}
 
@@ -142,6 +143,10 @@ public class GatewayInfo {
 	public String getLocation() {
 		// Will return a fake location
 		return "-12.9990189,-38.5140298";
+	}
+
+	public List<Bundler> getListBundler() {
+		return BundlerInfo.listBundler;
 	}
 
 	// will return a fake location

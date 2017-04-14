@@ -23,30 +23,50 @@ From: 'Apache Software Foundation' (http://www.apache.org)
 From: 'FuseSource, Corp.' (http://fusesource.com/)
   - sigar (http://fusesource.com/sigar/) org.fusesource:sigar:jar:1.6.4
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - jansi (http://jansi.fusesource.org/jansi) org.fusesource.jansi:jansi:jar:1.11
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 From: 'io.kamon'
   - sigar-loader (http://kamon.io) io.kamon:sigar-loader:jar:1.6.6-rev002
     License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'OSGi Alliance' (http://www.osgi.org)
+  - osgi.cmpn (http://www.osgi.org) org.osgi:org.osgi.compendium:jar:5.0.0
+    License: Apache License, Version 2.0  (http://opensource.org/licenses/apache2.0.php)
 
 From: 'QOS.ch' (http://www.qos.ch)
   - SLF4J API Module (http://www.slf4j.org) org.slf4j:slf4j-api:jar:1.7.12
     License: MIT License  (http://www.opensource.org/licenses/mit-license.php)
 
 From: 'The Apache Software Foundation' (http://www.apache.org)
+  - Apache Aries Util (http://aries.apache.org/org.apache.aries.util) org.apache.aries:org.apache.aries.util:bundle:1.1.1
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Aries Blueprint API (http://aries.apache.org/org.apache.aries.blueprint.api) org.apache.aries.blueprint:org.apache.aries.blueprint.api:bundle:1.0.1
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Aries Blueprint Core (http://aries.apache.org/org.apache.aries.blueprint.core) org.apache.aries.blueprint:org.apache.aries.blueprint.core:bundle:1.6.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Aries Proxy API (http://aries.apache.org/org.apache.aries.proxy.api) org.apache.aries.proxy:org.apache.aries.proxy.api:bundle:1.0.1
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Aries Quiesce API (http://aries.apache.org/default-parent/java5-parent/org.apache.aries.quiesce.api) org.apache.aries.quiesce:org.apache.aries.quiesce.api:bundle:1.0.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Activation 1.1 (http://geronimo.apache.org/maven/specs/geronimo-activation_1.1_spec/1.1) org.apache.geronimo.specs:geronimo-activation_1.1_spec:bundle:1.1
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 From: 'The Apache Software Foundation' (http://www.apache.org/)
   - Apache Commons Logging (http://commons.apache.org/proper/commons-logging/) commons-logging:commons-logging:jar:1.2
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Felix Gogo Runtime (http://felix.apache.org/gogo-parent/org.apache.felix.gogo.runtime/) org.apache.felix:org.apache.felix.gogo.runtime:bundle:0.16.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Karaf :: Bundle :: Core (http://www.apache.org/karaf/bundle/org.apache.karaf.bundle.core/) org.apache.karaf.bundle:org.apache.karaf.bundle.core:bundle:4.0.8
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Apache Karaf :: JAAS :: Boot (http://www.apache.org/karaf/jaas/org.apache.karaf.jaas.boot/) org.apache.karaf.jaas:org.apache.karaf.jaas.boot:bundle:4.0.7
     License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Apache Karaf :: JAAS :: Config (http://www.apache.org/karaf/jaas/org.apache.karaf.jaas.config/) org.apache.karaf.jaas:org.apache.karaf.jaas.config:bundle:4.0.7
     License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Apache Karaf :: JAAS :: Modules (http://www.apache.org/karaf/jaas/org.apache.karaf.jaas.modules/) org.apache.karaf.jaas:org.apache.karaf.jaas.modules:bundle:4.0.7
     License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
-  - Apache Karaf :: Shell :: Console (http://www.apache.org/karaf/shell/org.apache.karaf.shell.console/) org.apache.karaf.shell:org.apache.karaf.shell.console:bundle:4.0.7
-    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Karaf :: Shell :: Console (http://www.apache.org/karaf/shell/org.apache.karaf.shell.console/) org.apache.karaf.shell:org.apache.karaf.shell.console:bundle:2.3.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Apache Karaf :: Shell :: Core (http://www.apache.org/karaf/shell/org.apache.karaf.shell.core/) org.apache.karaf.shell:org.apache.karaf.shell.core:bundle:4.0.7
     License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Apache ServiceMix Bundles: commons-codec-1.3 (http://servicemix.apache.org/bundles-pom/org.apache.servicemix.bundles.commons-codec/) org.apache.servicemix.bundles:org.apache.servicemix.bundles.commons-codec:bundle:1.3_2

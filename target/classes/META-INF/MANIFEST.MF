@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1491444575513
+Bnd-LastModified: 1492120613437
 Build-Jdk: 1.8.0_66
 Built-By: nilson
 Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
@@ -14,13 +14,16 @@ Bundle-Version: 7.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: org.apache.servicemix.examples.cxf.jaxrs;version="7.0.0"
 Import-Package: javax.xml.bind.annotation;version="[2.2,3)",javax.ws.rs;
- version="[2.0,3)",javax.wsdl,javax.xml.bind;version="[2.2,3)",javax.ws.
- rs.core;version="[2.0,3)",org.springframework.beans.factory.config,org.
- apache.commons.httpclient;version="[3.1,4)",org.apache.commons.httpclie
- nt.methods;version="[3.1,4)",org.apache.felix.service.command;version="
- [0.16,1)",org.apache.felix.gogo.commands;version="[0.16,1)",org.apache.
- karaf.shell.console;version="[4.0,5)",org.apache.karaf.shell.commands;v
- ersion="[4.0,5)"
-Import-Service: org.osgi.framework.BundleContext;multiple:=false
+ version="[2.0,3)",org.apache.karaf.bundle.core;version="[4.0,5)",org.os
+ gi.framework;version="[1.8,2)",org.osgi.service.blueprint;version="[1.0
+ .0,2.0.0)",javax.wsdl,javax.xml.bind;version="[2.2,3)",javax.ws.rs.core
+ ;version="[2.0,3)",org.springframework.beans.factory.config,org.apache.
+ commons.httpclient;version="[3.1,4)",org.apache.commons.httpclient.meth
+ ods;version="[3.1,4)",org.apache.karaf.shell.commands,org.apache.felix.
+ service.command;version="[0.10,1)";status=provisional,org.apache.felix.
+ gogo.commands;version="[0.10,1)",org.apache.karaf.shell.console;version
+ ="[2.3,3)"
+Import-Service: org.apache.karaf.bundle.core.BundleService;multiple:=fal
+ se
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
 Tool: Bnd-3.0.0.201509101326

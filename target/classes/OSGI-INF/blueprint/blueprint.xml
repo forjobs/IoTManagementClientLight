@@ -16,27 +16,54 @@
 
 	<!-- This bundle makes use of Karaf commands to demonstrate core persistence 
 		operations. Feel free to remove it. -->
-		
-	<reference id="bundleContext" interface="org.osgi.framework.BundleContext">
-	</reference>	
-		
-	<bean id="service_monitor" class="org.apache.servicemix.examples.cxf.info.ServiceInfo"
-		init-method="listNames">
-		<property name="bundleContext" ref="bundleContext" />	
+
+	<!-- <reference id="bundleContext" interface="org.osgi.framework.BundleContext"> -->
+	<!-- </reference> -->
+
+	<reference id="bundle_service" interface="org.apache.karaf.bundle.core.BundleService">
+	</reference>
+
+	<!-- <bean id="service_monitor" -->
+	<!-- class="org.apache.servicemix.examples.cxf.command.CommandServiceInfo" -->
+	<!-- init-method="execute"> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="command_bundler_info" -->
+	<!-- class="org.apache.servicemix.examples.cxf.command.CommandBundleInfo"> -->
+	<!-- </bean> -->
+
+	<bean id="bundler_info" class="org.apache.servicemix.examples.cxf.info.BundlerInfo"
+		init-method="listBundles">
+		<property name="bundleService" ref="bundle_service" />
 	</bean>
 
-<!-- 	<command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0"> -->
-<!-- 		<command> -->
-<!-- 			<action class="org.apache.servicemix.examples.cxf.info.ServiceInfo" /> -->
-<!-- 		</command> -->
-<!-- 	</command-bundle> -->
-	
-<!-- 	<camelContext id="camel" -->
-<!-- 		xmlns="http://camel.apache.org/schema/blueprint"> -->
-		
-<!-- 		<route> -->
-<!-- 			<from uri="timer://myTimer?period=10000" /> -->
-<!-- 			<to uri="bean:service_monitor?method=listNames" /> -->
-<!-- 		</route>		 -->
-<!-- 	</camelContext> -->
+	<!-- <command-bundle xmlns="http://karaf.apache.org/xmlns/shell/v1.1.0"> -->
+	<!-- <command> -->
+	<!-- <action -->
+	<!-- class="org.apache.servicemix.examples.cxf.command.CommandServiceView"> -->
+	<!-- </action> -->
+	<!-- </command> -->
+	<!-- </command-bundle> -->
+
+	<camelContext id="camel"
+		xmlns="http://camel.apache.org/schema/blueprint">
+
+		<!-- <route> -->
+		<!-- <from uri="timer://myTimer?period=5000" /> -->
+		<!-- <to uri="bean:service_monitor?method=execute" /> -->
+		<!-- </route> -->
+
+		<!-- <route> -->
+		<!-- <from uri="timer://myTimer?period=5000" /> -->
+		<!-- <to uri="bean:command_bundler_info?method=execute" /> -->
+		<!-- </route> -->
+
+		<route>
+			<from uri="timer://myTimer?period=5000" />
+			<to uri="bean:bundler_info?method=listBundles" />
+		</route>
+
+
+
+	</camelContext>
 </blueprint>

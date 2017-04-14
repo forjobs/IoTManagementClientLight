@@ -1,5 +1,7 @@
 package org.apache.servicemix.examples.cxf.model;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Gateway")
@@ -21,11 +23,12 @@ public class Gateway { // class with the gateway properties
 									// processor's capacity used
 	private double freeProcessor; // returns the percentage value of the free
 									// processor capacity
-	//private List<CPU> cpu; // returns information about CPU characteristics
+	// private List<CPU> cpu; // returns information about CPU characteristics
 	private String mac; // returns the mac address
 	private String ip; // returns the ip address
 	private String hostName; // returns the hostname
 	private String location; // returns the fake location
+	private List<Bundler> listBundler;
 	// private List<Service> service = new ArrayList<Service>(); // returns the
 	// list of services
 	// private String[] intefaceNetwork; //returns a list with the existing
@@ -135,13 +138,13 @@ public class Gateway { // class with the gateway properties
 		this.freeProcessor = freeProcessor;
 	}
 
-//	public List<CPU> getCpu() {
-//		return cpu;
-//	}
-//
-//	public void setCpu(List<CPU> cpu) {
-//		this.cpu = cpu;
-//	}
+	// public List<CPU> getCpu() {
+	// return cpu;
+	// }
+	//
+	// public void setCpu(List<CPU> cpu) {
+	// this.cpu = cpu;
+	// }
 
 	public String getMac() {
 		return mac;
@@ -173,6 +176,14 @@ public class Gateway { // class with the gateway properties
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public List<Bundler> getListBundler() {
+		return listBundler;
+	}
+
+	public void setListBundler(List<Bundler> listBundler) {
+		this.listBundler = listBundler;
 	}
 
 	// public List<Service> getService() {

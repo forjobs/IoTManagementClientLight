@@ -19,10 +19,6 @@ public class ServiceInfo {
 		this.bundleContext = bundleContext;
 	}
 
-	public ServiceInfo() {
-		System.out.println(">>>>>ServiceInfo funcional.");
-	}
-
 	public void listNames() {
 		System.out.println(">>>>>>>BundleContext: " + bundleContext != null);
 		Map<String, Integer> serviceNames = getServiceNamesMap(bundleContext);
@@ -35,7 +31,7 @@ public class ServiceInfo {
 		System.out.println("####################");
 	}
 
-	public static Map<String, Integer> getServiceNamesMap(BundleContext bundleContext) {
+	private static Map<String, Integer> getServiceNamesMap(BundleContext bundleContext) {
 		Map<String, Integer> serviceNames = new HashMap<String, Integer>();
 		Bundle[] bundles = bundleContext.getBundles();
 		for (Bundle bundle : bundles) {

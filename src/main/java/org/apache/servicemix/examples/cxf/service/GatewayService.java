@@ -7,6 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import org.apache.servicemix.examples.cxf.info.GatewayInfo;
+import org.apache.servicemix.examples.cxf.model.Bundler;
 import org.apache.servicemix.examples.cxf.model.CPU;
 import org.apache.servicemix.examples.cxf.model.Gateway;
 import org.apache.servicemix.examples.cxf.model.Service;
@@ -48,6 +49,7 @@ public class GatewayService {
 		gateway.setIp(this.getIpService());
 		gateway.setHostName(this.getHostNameService());
 		gateway.setLocation(this.getLocationService());
+		gateway.setListBundler(this.getListBundler());
 		//gateway.setService(this.getServiceService());
 		//gateway.setIntefaceNetwork(this.getIntefaceNetworkService());
 		
@@ -143,6 +145,10 @@ public class GatewayService {
 	// returns the fake location
 	public String getLocationService() {
 		return gatewayInfo.getLocation();
+	}
+	
+	public List<Bundler> getListBundler () {
+		return gatewayInfo.getListBundler();
 	}
 
 	// returns the list of services
