@@ -151,8 +151,7 @@ public class GatewayInfo {
 
 	// will return a fake location
 	public List<Service> getService() {
-		// not implemented
-		return null;
+		return ServiceInfo.listService;
 	}
 
 	// returns a list with the existing network interfaces

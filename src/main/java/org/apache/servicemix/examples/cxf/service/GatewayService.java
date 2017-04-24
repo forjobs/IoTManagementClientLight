@@ -50,7 +50,7 @@ public class GatewayService {
 		gateway.setHostName(this.getHostNameService());
 		gateway.setLocation(this.getLocationService());
 		gateway.setListBundler(this.getListBundler());
-		//gateway.setService(this.getServiceService());
+		gateway.setService(this.getServiceService());
 		//gateway.setIntefaceNetwork(this.getIntefaceNetworkService());
 		
 		return gateway;
@@ -147,6 +147,7 @@ public class GatewayService {
 		return gatewayInfo.getLocation();
 	}
 	
+	//@Path("/gateway/gt/listbundles")
 	public List<Bundler> getListBundler () {
 		return gatewayInfo.getListBundler();
 	}

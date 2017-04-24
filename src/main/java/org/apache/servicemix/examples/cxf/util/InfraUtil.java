@@ -30,7 +30,6 @@ public class InfraUtil {
 			}
 		}
 		return ipAddress;
-
 	}
 
 	// returns the mac address of the local machine

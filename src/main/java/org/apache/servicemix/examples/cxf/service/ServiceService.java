@@ -4,14 +4,13 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import org.apache.servicemix.examples.cxf.info.ServiceInfo;
 import org.apache.servicemix.examples.cxf.model.Service;
 
 @Path("/serviceservice/")
 public class ServiceService {
 	
 		private Service service;
-		private ServiceInfo serviceInfo;
+		//private ServiceInfo serviceInfo;
 
 		public ServiceService() {
 			System.out.println("Service monitoring started.");		
@@ -24,9 +23,9 @@ public class ServiceService {
 			
 			service = new Service();
 			
-			serviceInfo = new ServiceInfo();
+			//serviceInfo = new ServiceInfo();
 
-			serviceInfo.listNames();
+			//serviceInfo.listNames();
 			
 			return service;
 		}

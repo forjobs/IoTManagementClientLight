@@ -2,6 +2,7 @@ package org.apache.servicemix.examples.cxf.info;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.karaf.bundle.core.BundleInfo;
 import org.apache.karaf.bundle.core.BundleService;
@@ -34,6 +35,10 @@ public class BundlerInfo {
 
 		Bundler bundler;
 		
+		listBundler = new ArrayList<Bundler>();
+		
+		int cont = 0;
+		
 		listBundle = bundleService.selectBundles(context, ids, defaultAllBundles);
 
 		for (Bundle bundle : listBundle) {
@@ -44,12 +49,21 @@ public class BundlerInfo {
 
 				bundler.setName(info.getName());
 				bundler.setVersion(info.getVersion());
-				bundler.setState(info.getState().toString());
+				//bundler.setState(info.getState().toString());
 				bundler.setLocation(info.getUpdateLocation());
 
 			}
 
 			listBundler.add(bundler);
+			
+			Random gerador = new Random();
+			
+			cont++;
+			
+			//modificar para retornar apenas os serviços que não são de infra-estrutura
+			if(cont > gerador.nextInt(11)) {
+				break;
+			}
 
 		}
 		System.out.println(">>> Lista atualizada.");
@@ -71,7 +85,7 @@ public class BundlerInfo {
 
 				bundler.setName(info.getName());
 				bundler.setVersion(info.getVersion());
-				bundler.setState(info.getState().toString());
+				//bundler.setState(info.getState().toString());
 				bundler.setLocation(info.getUpdateLocation());
 
 				System.out.println(">>>> " + info.getName());

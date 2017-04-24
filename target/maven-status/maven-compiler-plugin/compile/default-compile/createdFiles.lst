@@ -1,13 +1,13 @@
 org/apache/servicemix/examples/cxf/model/Storage.class
 org/apache/servicemix/examples/cxf/service/GatewayService.class
-org/apache/servicemix/examples/cxf/service/ServiceService.class
 org/apache/servicemix/examples/cxf/info/ServiceInfo.class
 org/apache/servicemix/examples/cxf/model/Service.class
 org/apache/servicemix/examples/cxf/command/CommandServiceInfo.class
-org/apache/servicemix/examples/cxf/command/CommandBundleInfo.class
-org/apache/servicemix/examples/cxf/model/CPU.class
 org/apache/servicemix/examples/cxf/info/GatewayInfo.class
 org/apache/servicemix/examples/cxf/model/Gateway.class
+org/apache/servicemix/examples/cxf/service/ServiceService.class
+org/apache/servicemix/examples/cxf/command/CommandBundleInfo.class
+org/apache/servicemix/examples/cxf/model/CPU.class
 org/apache/servicemix/examples/cxf/model/Bundler.class
 org/apache/servicemix/examples/cxf/util/InfraUtil.class
 org/apache/servicemix/examples/cxf/info/BundlerInfo.class

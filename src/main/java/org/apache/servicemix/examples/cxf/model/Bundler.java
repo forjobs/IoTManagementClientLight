@@ -3,18 +3,18 @@ package org.apache.servicemix.examples.cxf.model;
 //@XmlRootElement(name = "Bundler")
 public class Bundler {
 
-	private String state;
+	// private String state;
 	private String name;
 	private String version;
 	private String location;
 
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
+	// public String getState() {
+	// return state;
+	// }
+	//
+	// public void setState(String state) {
+	// this.state = state;
+	// }
 
 	public String getName() {
 		return name;
@@ -39,5 +39,6 @@ public class Bundler {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
 
 }

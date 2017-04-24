@@ -1,13 +1,24 @@
 package org.apache.servicemix.examples.cxf.model;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.List;
 
 // Class that reflects the serviceIoT
-@XmlRootElement(name = "Service")
+//@XmlRootElement(name = "Service")
 public class Service {
 
+	private long id;
 	private String nameService;
-	private String id;
+	private String bundlerProvide;
+	private List<String> listUsesBundles = new ArrayList<String>();
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNameService() {
 		return nameService;
@@ -17,12 +28,20 @@ public class Service {
 		this.nameService = nameService;
 	}
 
-	public String getId() {
-		return id;
+	public String getBundlerProvide() {
+		return bundlerProvide;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setBundlerProvide(String bundlerProvide) {
+		this.bundlerProvide = bundlerProvide;
+	}
+
+	public List<String> getListUsesBundles() {
+		return listUsesBundles;
+	}
+
+	public void setListUsesBundles(List<String> listUsesBundles) {
+		this.listUsesBundles = listUsesBundles;
 	}
 
 }

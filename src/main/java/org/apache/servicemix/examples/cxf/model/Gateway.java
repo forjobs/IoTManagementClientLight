@@ -29,7 +29,7 @@ public class Gateway { // class with the gateway properties
 	private String hostName; // returns the hostname
 	private String location; // returns the fake location
 	private List<Bundler> listBundler;
-	// private List<Service> service = new ArrayList<Service>(); // returns the
+	private List<Service> service; // returns the
 	// list of services
 	// private String[] intefaceNetwork; //returns a list with the existing
 	// network interfaces
@@ -186,13 +186,13 @@ public class Gateway { // class with the gateway properties
 		this.listBundler = listBundler;
 	}
 
-	// public List<Service> getService() {
-	// return service;
-	// }
-	//
-	// public void setService(List<Service> service) {
-	// this.service = service;
-	// }
+	public List<Service> getService() {
+		return service;
+	}
+
+	public void setService(List<Service> service) {
+		this.service = service;
+	}
 	//
 	// public String[] getIntefaceNetwork() {
 	// return intefaceNetwork;
