@@ -1,5 +1,6 @@
 package org.apache.servicemix.examples.cxf.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,29 +12,22 @@ public class Gateway { // class with the gateway properties
 	private String model; // to be defined
 	private String manufacturer; // to be defined
 	private String firmware; // to be defined
-	private boolean status; // on-off used server side opportunistically
+//	private boolean status; // on-off used server side opportunistically
 	private long storage; // returns the list of components in existing stores
 	private String lastUpdate; // Method for the server side, but the client can
 								// register its actualization if possible
-	private int baterryLevel; // returns the battery level in percent
-	private long totalMemory; // returns the total of memory
-	private long usedMemory; // returns the total of used memory
-	private long freeMemory; // returns the total of free memory
-	private double usedProcessor; // returns the percentage value of the
-									// processor's capacity used
-	private double freeProcessor; // returns the percentage value of the free
+	
 									// processor capacity
 	// private List<CPU> cpu; // returns information about CPU characteristics
 	private String mac; // returns the mac address
 	private String ip; // returns the ip address
 	private String hostName; // returns the hostname
 	private String location; // returns the fake location
-	private List<Bundler> listBundler;
-	private List<Service> service; // returns the
-	// list of services
+	private List<Bundler> listBundler = new ArrayList<Bundler>();
 	// private String[] intefaceNetwork; //returns a list with the existing
 	// network interfaces
-
+	private List<Service> listService = new ArrayList<Service>();
+	
 	public String getDescription() {
 		return description;
 	}
@@ -66,13 +60,13 @@ public class Gateway { // class with the gateway properties
 		this.firmware = firmware;
 	}
 
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+//	public boolean isStatus() {
+//		return status;
+//	}
+//
+//	public void setStatus(boolean status) {
+//		this.status = status;
+//	}
 
 	public long getStorage() {
 		return storage;
@@ -90,54 +84,6 @@ public class Gateway { // class with the gateway properties
 		this.lastUpdate = lastUpdate;
 	}
 
-	public int getBaterryLevel() {
-		return baterryLevel;
-	}
-
-	public void setBaterryLevel(int baterryLevel) {
-		this.baterryLevel = baterryLevel;
-	}
-
-	public long getTotalMemory() {
-		return totalMemory;
-	}
-
-	public void setTotalMemory(long totalMemory) {
-		this.totalMemory = totalMemory;
-	}
-
-	public long getUsedMemory() {
-		return usedMemory;
-	}
-
-	public void setUsedMemory(long usedMemory) {
-		this.usedMemory = usedMemory;
-	}
-
-	public long getFreeMemory() {
-		return freeMemory;
-	}
-
-	public void setFreeMemory(long freeMemory) {
-		this.freeMemory = freeMemory;
-	}
-
-	public double getUsedProcessor() {
-		return usedProcessor;
-	}
-
-	public void setUsedProcessor(double usedProcessor) {
-		this.usedProcessor = usedProcessor;
-	}
-
-	public double getFreeProcessor() {
-		return freeProcessor;
-	}
-
-	public void setFreeProcessor(double freeProcessor) {
-		this.freeProcessor = freeProcessor;
-	}
-
 	// public List<CPU> getCpu() {
 	// return cpu;
 	// }
@@ -146,6 +92,7 @@ public class Gateway { // class with the gateway properties
 	// this.cpu = cpu;
 	// }
 
+	
 	public String getMac() {
 		return mac;
 	}
@@ -186,14 +133,6 @@ public class Gateway { // class with the gateway properties
 		this.listBundler = listBundler;
 	}
 
-	public List<Service> getService() {
-		return service;
-	}
-
-	public void setService(List<Service> service) {
-		this.service = service;
-	}
-	//
 	// public String[] getIntefaceNetwork() {
 	// return intefaceNetwork;
 	// }
@@ -201,4 +140,13 @@ public class Gateway { // class with the gateway properties
 	// public void setIntefaceNetwork(String[] intefaceNetwork) {
 	// this.intefaceNetwork = intefaceNetwork;
 	// }
+	
+	public List<Service> getListService() {
+		return listService;
+	}
+
+	public void setListService(List<Service> listService) {
+		this.listService = listService;
+	}
+	
 }

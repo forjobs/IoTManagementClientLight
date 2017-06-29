@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 
 import org.apache.karaf.shell.support.ShellUtil;
+import org.apache.servicemix.examples.cxf.model.Bundler;
 import org.apache.servicemix.examples.cxf.model.Service;
 import org.apache.servicemix.examples.cxf.util.ObjectClassMatcher;
 import org.osgi.framework.Bundle;
@@ -15,106 +15,136 @@ import org.osgi.framework.Constants;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
 
+/**
+ * Class responsible for discovering the services installed at the gateway
+ *
+ * @author Nilson Rodrigues Sousa
+ */
 public class ServiceInfo {
 
-	// @Argument(index = 0, name = "objectClass", description = "Name of service
-	// objectClass to filter for", required = false, multiValued = false)
-	// @Completion(ObjectClassCompleter.class)
-	String objectClass;
+	private String objectClass;
 
-	boolean showAll;
+	private boolean showAll;
 
-	BundleContext bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
+	private BundleContext bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 
 	protected static List<Service> listService = new ArrayList<Service>();
 
-	public void execute() throws Exception {
+	/**
+	 * Method returns information about the services
+	 * 
+	 * @author Nilson Rodrigues Sousa
+	 * @return List<Service> - Services existing gateway
+	 */
+	public List<Service> getListService() {
 
-		List<ServiceReference<?>> serviceRefs = new ArrayList<ServiceReference<?>>();
-		Bundle[] bundles = bundleContext.getBundles();
-		for (Bundle bundle : bundles) {
-			ServiceReference<?>[] services = bundle.getRegisteredServices();
-			if (services != null) {
-				for (ServiceReference<?> ref : services) {
-					String[] objectClasses = (String[]) ref.getProperty(Constants.OBJECTCLASS);
-					if (objectClass == null || ObjectClassMatcher.matchesAtLeastOneName(objectClasses, objectClass)) {
-						serviceRefs.add(ref);
-					}
-				}
-			}
-		}
+		try {
+			listService = new ArrayList<Service>();
 
-		Collections.sort(serviceRefs, new ServiceClassComparator());
-		
-		int cont = 0;
-		
-		for (ServiceReference<?> serviceRef : serviceRefs) {
-			
-			
-			Random gerador = new Random();
-			
-			if(cont > gerador.nextInt(11))
-				break;
-			
-			cont++;
-			
-			if (showAll || !isCommand((String[]) serviceRef.getProperty(Constants.OBJECTCLASS))) {
-
-				Service service = new Service();
-
-				String[] objectClass = (String[]) serviceRef.getProperty(Constants.OBJECTCLASS);
-
-				// name service
-				service.setNameService(ShellUtil.getValueString(objectClass));
-
-				// service.id
-				for (String key : serviceRef.getPropertyKeys()) {
-					if (!Constants.OBJECTCLASS.equals(key)) {
-						if (key.equals("service.id")) {
-							service.setId(Long.parseLong(ShellUtil.getValueString(serviceRef.getProperty(key))));
+			List<ServiceReference<?>> serviceRefs = new ArrayList<ServiceReference<?>>();
+			Bundle[] bundles = bundleContext.getBundles();
+			for (Bundle bundle : bundles) {
+				ServiceReference<?>[] services = bundle.getRegisteredServices();
+				if (services != null) {
+					for (ServiceReference<?> ref : services) {
+						String[] objectClasses = (String[]) ref.getProperty(Constants.OBJECTCLASS);
+						if (objectClass == null
+								|| ObjectClassMatcher.matchesAtLeastOneName(objectClasses, objectClass)) {
+							serviceRefs.add(ref);
 						}
 					}
 				}
-				// service.bundleProvide
-				service.setBundlerProvide(formatOutput(ShellUtil.getBundleName(serviceRef.getBundle())));
+			}
 
-				// service.listUsesBundles
-				Bundle[] usingBundles = serviceRef.getUsingBundles();
-				if (usingBundles != null) {
-					for (Bundle bundle : usingBundles) {
-						service.getListUsesBundles().add(formatOutput(ShellUtil.getBundleName(bundle)));
+			Collections.sort(serviceRefs, new ServiceClassComparator());
+
+			// usado para limitar o número de serviços
+			int cont = 0;
+
+			for (ServiceReference<?> serviceRef : serviceRefs) {
+
+				// usado para limitar o número de serviços
+				// Random gerador = new Random();
+
+				if (cont > 15)
+					break;
+
+				cont++;
+				// ######################
+
+				if (showAll || !isCommand((String[]) serviceRef.getProperty(Constants.OBJECTCLASS))) {
+
+					Service service = new Service();
+
+					String[] objectClass = (String[]) serviceRef.getProperty(Constants.OBJECTCLASS);
+
+					// name service
+					service.setNameService(ShellUtil.getValueString(objectClass));
+
+					// service.id
+					for (String key : serviceRef.getPropertyKeys()) {
+						if (!Constants.OBJECTCLASS.equals(key)) {
+							if (key.equals("service.id")) {
+								// service.setId(Long.parseLong(ShellUtil.getValueString(serviceRef.getProperty(key))));
+							}
+						}
 					}
+					// service.bundleProvide
+					Bundler bundler = new Bundler();
+
+					bundler.setName(formatOutput(ShellUtil.getBundleName(serviceRef.getBundle())));
+					bundler.setVersion(String.valueOf(serviceRef.getBundle().getVersion()));
+					//Not necessary because name and version is sufficient for identification
+					//bundler.setLocation(String.valueOf(serviceRef.getBundle().getLocation()));
+					//bundler.setState(String.valueOf(serviceRef.getBundle().getState()));
+					
+					
+					
+					service.setBundlerProvide(bundler);
+
+					// service.listUsesBundles
+					Bundle[] usingBundles = serviceRef.getUsingBundles();
+					if (usingBundles != null) {
+						for (Bundle bundle : usingBundles) {
+							Bundler addBundler = new Bundler();
+
+							addBundler.setName(formatOutput(ShellUtil.getBundleName(bundle)));
+							addBundler.setVersion(String.valueOf(bundle.getVersion()));
+							//Not necessary because name and version is sufficient for identification							
+							//addBundler.setLocation(String.valueOf(bundle.getLocation()));
+							//addBundler.setState(String.valueOf(bundle.getState()));
+							
+							service.setBundlerProvide(bundler);
+
+							service.getListUsesBundles().add(addBundler);
+
+							// service.getListUsesBundles().add(formatOutput(ShellUtil.getBundleName(bundle)));
+						}
+					}
+					listService.add(service);
 				}
-				listService.add(service);
 			}
+			
+			return listService;
+		} catch (Exception e) {
+			System.out.println("Failure in capture information service.");
+			return null;
 		}
-
-		printCustom();
-
 	}
 
-	private void printCustom() {
-
-		for (Service service : listService) {
-			System.out.println("\n#######################################\n");
-
-			System.out.println("Service.id: " + service.getId());
-			System.out.println("Service.name: " + service.getNameService());
-			System.out.println("Service.bundlerProvide: " + service.getBundlerProvide());
-			System.out.println("Service.usedBy: ");
-
-			for (String userBy : service.getListUsesBundles()) {
-				System.out.println(" " + userBy);
-			}
-		}
-
-	}
-
-	private String formatOutput(String string) {		
+	/**
+	 * Karaf implementation method
+	 * 
+	 * @param string
+	 *            String - String to be formatted
+	 * @author Apache Sofware Foundation
+	 * @return String - Formatted String
+	 */
+	private String formatOutput(String string) {
 		String stringFormated = "";
-		
-		for(int i = 0; i < string.length(); i++) {
-			if(string.charAt(i) == '(') {
+
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) == '(') {
 				break;
 			}
 			stringFormated += string.charAt(i);
@@ -123,6 +153,14 @@ public class ServiceInfo {
 		return stringFormated;
 	}
 
+	/**
+	 * Karaf implementation method
+	 * 
+	 * @param objectClasses
+	 *            String[] - List strings
+	 * @author Apache Sofware Foundation
+	 * @return boolean - Command
+	 */
 	private boolean isCommand(String[] objectClasses) {
 		for (String objectClass : objectClasses) {
 			if (objectClass.equals("org.apache.felix.service.command.Function")) {
@@ -132,6 +170,12 @@ public class ServiceInfo {
 		return false;
 	}
 
+	/**
+	 * Karaf implementation method
+	 * 
+	 * @author Apache Sofware Foundation
+	 * @return ServiceClassComparator - Comparison result
+	 */
 	public final class ServiceClassComparator implements Comparator<ServiceReference<?>> {
 		@Override
 		public int compare(ServiceReference<?> o1, ServiceReference<?> o2) {

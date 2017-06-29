@@ -26,6 +26,10 @@
 	<name>Apache ServiceMix :: Examples :: CXF JAX-RS OSGI</name>
 	<description>CXF Example using JAX-RS</description>
 
+	<properties>
+		<jersey.version>1.19</jersey.version>
+	</properties>
+
 	<dependencies>
 		<!-- Dependency for information on services -->
 		<dependency>
@@ -102,6 +106,55 @@
 			<version>4.0.8</version>
 		</dependency>
 
+		<!-- Dependency for jersey -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<!-- Jersey -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-core</artifactId> -->
+		<!-- <version>1.12</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-server</artifactId> -->
+		<!-- <version>1.12</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-json</artifactId> -->
+		<!-- <version>1.12</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>javax.ws.rs</groupId> -->
+		<!-- <artifactId>jsr311-api</artifactId> -->
+		<!-- <version>1.1.1</version> -->
+		<!-- </dependency> -->
+
+		<!-- Gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<!-- Gson -->
 
 	</dependencies>
 
@@ -127,6 +180,7 @@
 							org.apache.felix.service.command,
 							org.apache.felix.gogo.commands,
 							org.apache.karaf.shell.console,
+							<!-- com.sun.jersey.api.client, -->
 							*
 						</Import-Package>
 						<Export-Package>

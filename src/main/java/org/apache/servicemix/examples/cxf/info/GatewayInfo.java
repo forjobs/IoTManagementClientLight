@@ -9,6 +9,11 @@ import org.apache.servicemix.examples.cxf.model.CPU;
 import org.apache.servicemix.examples.cxf.model.Service;
 import org.apache.servicemix.examples.cxf.util.InfraUtil;
 
+/**
+ * Class responsible capture information about the gateway
+ *
+ * @author Nilson Rodrigues Sousa
+ */
 public class GatewayInfo {
 
 	// This constructor could be the cause of the error in
@@ -23,7 +28,7 @@ public class GatewayInfo {
 	public String getDescription() {
 		return "Debian_Light";
 	}
-
+	
 	// to be defined
 	public String getModel() {
 		return "0.11.2";
@@ -71,37 +76,6 @@ public class GatewayInfo {
 	// if possible
 	public String getLastUpdate() {
 		return InfraUtil.getDateHour();
-	}
-
-	// returns the battery level in percent
-	// if it is not possible to use the command will be returned -1
-	public int baterryLevel() {
-		return new Random().nextInt(100);
-	}
-
-	// returns the total of memory
-	public long getTotalMemory() {
-		return new Random().nextInt(19700621);
-	}
-
-	// returns the total of used memory
-	public long getUsedMemory() {
-		return new Random().nextInt(19700621);
-	}
-
-	// returns the total of free memory
-	public long getFreeMemory() {
-		return new Random().nextInt(19700621);
-	}
-
-	// returns the percentage value of the processor's capacity used
-	public double getUsedProcessor() {
-		return new Random().nextDouble() * 100;
-	}
-
-	// returns the percentage value of the free processor capacity
-	public double getFreeProcessor() {
-		return new Random().nextDouble() * 100;
 	}
 
 	// returns information about CPU characteristics

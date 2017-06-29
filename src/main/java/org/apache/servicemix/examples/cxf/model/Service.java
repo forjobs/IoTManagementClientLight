@@ -3,22 +3,14 @@ package org.apache.servicemix.examples.cxf.model;
 import java.util.ArrayList;
 import java.util.List;
 
-// Class that reflects the serviceIoT
-//@XmlRootElement(name = "Service")
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Service")
 public class Service {
 
-	private long id;
 	private String nameService;
-	private String bundlerProvide;
-	private List<String> listUsesBundles = new ArrayList<String>();
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+	private Bundler bundlerProvide;
+	private List<Bundler> listUsesBundles = new ArrayList<Bundler>();
 
 	public String getNameService() {
 		return nameService;
@@ -28,20 +20,57 @@ public class Service {
 		this.nameService = nameService;
 	}
 
-	public String getBundlerProvide() {
+	public Bundler getBundlerProvide() {
 		return bundlerProvide;
 	}
 
-	public void setBundlerProvide(String bundlerProvide) {
+	public void setBundlerProvide(Bundler bundlerProvide) {
 		this.bundlerProvide = bundlerProvide;
 	}
 
-	public List<String> getListUsesBundles() {
+	public List<Bundler> getListUsesBundles() {
 		return listUsesBundles;
 	}
 
-	public void setListUsesBundles(List<String> listUsesBundles) {
+	public void setListUsesBundles(List<Bundler> listUsesBundles) {
 		this.listUsesBundles = listUsesBundles;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((bundlerProvide == null) ? 0 : bundlerProvide.hashCode());
+		result = prime * result + ((listUsesBundles == null) ? 0 : listUsesBundles.hashCode());
+		result = prime * result + ((nameService == null) ? 0 : nameService.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Service other = (Service) obj;
+		if (bundlerProvide == null) {
+			if (other.bundlerProvide != null)
+				return false;
+		} else if (!bundlerProvide.equals(other.bundlerProvide))
+			return false;
+		if (listUsesBundles == null) {
+			if (other.listUsesBundles != null)
+				return false;
+		} else if (!listUsesBundles.equals(other.listUsesBundles))
+			return false;
+		if (nameService == null) {
+			if (other.nameService != null)
+				return false;
+		} else if (!nameService.equals(other.nameService))
+			return false;
+		return true;
 	}
 
 }

@@ -11,14 +11,28 @@ From: 'an unknown organization'
     License: Apache License 2.0  (http://www.apache.org/licenses/LICENSE-2.0.html)
   - Metrics Sigar Integration (https://github.com/cb372/metrics-sigar) com.github.cb372:metrics-sigar:jar:0.2.2
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Gson (https://github.com/google/gson/gson) com.google.code.gson:gson:jar:2.8.0
+    License: Apache 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - JLine (http://nexus.sonatype.org/oss-repository-hosting.html/jline) jline:jline:jar:2.14.2
     License: The BSD License  (http://www.opensource.org/licenses/bsd-license.php)
+  - Jettison (http://codehaus.org/jettison/) org.codehaus.jettison:jettison:bundle:1.3.7
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0)
 
 From: 'Apache Software Foundation' (http://www.apache.org)
   - Apache Log4j (http://logging.apache.org/log4j/1.2/) log4j:log4j:bundle:1.2.17
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
   - Streaming API for XML (STAX API 1.0) (http://geronimo.apache.org/specs/geronimo-stax-api_1.0_spec) org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:bundle:1.0.1
     License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'FasterXML' (http://fasterxml.com)
+  - Jackson (http://jackson.codehaus.org) org.codehaus.jackson:jackson-core-asl:jar:1.9.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - JAX-RS provider for JSON content type (http://jackson.codehaus.org) org.codehaus.jackson:jackson-jaxrs:jar:1.9.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)    License: GNU Lesser General Public License (LGPL), Version 2.1  (http://www.fsf.org/licensing/licenses/lgpl.txt)
+  - Data Mapper for Jackson (http://jackson.codehaus.org) org.codehaus.jackson:jackson-mapper-asl:jar:1.9.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Xml Compatibility extensions for Jackson (http://jackson.codehaus.org) org.codehaus.jackson:jackson-xc:jar:1.9.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)    License: GNU Lesser General Public License (LGPL), Version 2.1  (http://www.fsf.org/licensing/licenses/lgpl.txt)
 
 From: 'FuseSource, Corp.' (http://fusesource.com/)
   - sigar (http://fusesource.com/sigar/) org.fusesource:sigar:jar:1.6.4
@@ -30,6 +44,20 @@ From: 'io.kamon'
   - sigar-loader (http://kamon.io) io.kamon:sigar-loader:jar:1.6.6-rev002
     License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
 
+From: 'Oracle Corporation' (http://www.oracle.com/)
+  - jersey-client (https://jersey.java.net/jersey-client/) com.sun.jersey:jersey-client:jar:1.19
+    License: CDDL 1.1  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)    License: GPL2 w/ CPE  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)
+  - jersey-core (https://jersey.java.net/jersey-core/) com.sun.jersey:jersey-core:jar:1.19
+    License: CDDL 1.1  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)    License: GPL2 w/ CPE  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)
+  - jersey-json (https://jersey.java.net/jersey-json/) com.sun.jersey:jersey-json:jar:1.19
+    License: CDDL 1.1  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)    License: GPL2 w/ CPE  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)
+  - jersey-server (https://jersey.java.net/jersey-server/) com.sun.jersey:jersey-server:jar:1.19
+    License: CDDL 1.1  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)    License: GPL2 w/ CPE  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)
+  - jersey-servlet (https://jersey.java.net/jersey-servlet/) com.sun.jersey:jersey-servlet:jar:1.19
+    License: CDDL 1.1  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)    License: GPL2 w/ CPE  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)
+  - Old JAXB Runtime (http://jaxb.java.net/jaxb-bundles/jaxb-impl) com.sun.xml.bind:jaxb-impl:jar:2.2.11
+    License: CDDL+GPL License  (http://glassfish.java.net/public/CDDL+GPL_1_1.html)
+
 From: 'OSGi Alliance' (http://www.osgi.org)
   - osgi.cmpn (http://www.osgi.org) org.osgi:org.osgi.compendium:jar:5.0.0
     License: Apache License, Version 2.0  (http://opensource.org/licenses/apache2.0.php)
@@ -37,6 +65,10 @@ From: 'OSGi Alliance' (http://www.osgi.org)
 From: 'QOS.ch' (http://www.qos.ch)
   - SLF4J API Module (http://www.slf4j.org) org.slf4j:slf4j-api:jar:1.7.12
     License: MIT License  (http://www.opensource.org/licenses/mit-license.php)
+
+From: 'Sun Microsystems, Inc' (http://www.sun.com/)
+  - jsr311-api (https://jsr311.dev.java.net) javax.ws.rs:jsr311-api:jar:1.1.1
+    License: CDDL License  (http://www.opensource.org/licenses/cddl1.php)
 
 From: 'The Apache Software Foundation' (http://www.apache.org)
   - Apache Aries Util (http://aries.apache.org/org.apache.aries.util) org.apache.aries:org.apache.aries.util:bundle:1.1.1
