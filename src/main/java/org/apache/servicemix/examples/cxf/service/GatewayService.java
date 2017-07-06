@@ -22,7 +22,8 @@ import com.google.gson.Gson;
 public class GatewayService {
 	private Gateway gateway;
 	private GatewayInfo gatewayInfo;
-	private String ip = "192.168.0.131:8181"; // information and mac
+//	private String ip = "192.168.0.131:8181";
+	private String ip = "192.168.1.101:8181";
 
 	public GatewayService() {
 		System.out.println("Gateway monitoring started.");

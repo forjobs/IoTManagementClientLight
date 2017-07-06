@@ -27,6 +27,7 @@ public class BundlerService {
 
 	private List<Bundler> listBundler;
 	private BundlerInfo bundlerInfo;
+//	private String ip = "192.168.0.131:8181";
 	private String ip = "192.168.1.101:8181";
 
 	public BundlerService() {

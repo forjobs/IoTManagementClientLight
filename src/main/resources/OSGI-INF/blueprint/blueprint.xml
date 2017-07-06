@@ -83,11 +83,10 @@
 			/> -->
 		<!-- </route> -->
 
-		<!-- <route> final -->
-		<!-- <from uri="timer://myTimer?period=10000" /> -->
-		<!-- <to uri="bean:control_send_gateway_information?method=compareInfoGateway" 
-			/> -->
-		<!-- </route> -->
+		<route>
+			<from uri="timer://myTimer?period=10000" />
+			<to uri="bean:control_send_gateway_information?method=compareInfoGateway" />
+		</route>
 
 		<!-- <route> final -->
 		<!-- <from uri="timer://myTimer?period=10000" /> -->
@@ -96,10 +95,11 @@
 			/> -->
 		<!-- </route> -->
 
-		<route>
-			<from uri="timer://myTimer?period=10000" />
-			<to uri="bean:control_send_service_information?method=compareInfoService" />
-		</route>
+		<!-- <route> final -->
+		<!-- <from uri="timer://myTimer?period=10000" /> -->
+		<!-- <to uri="bean:control_send_service_information?method=compareInfoService" 
+			/> -->
+		<!-- </route> -->
 
 	</camelContext>
 </blueprint>

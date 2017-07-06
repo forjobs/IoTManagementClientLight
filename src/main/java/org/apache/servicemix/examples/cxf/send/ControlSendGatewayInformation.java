@@ -15,6 +15,7 @@ public class ControlSendGatewayInformation {
 	private static Gateway gateway;
 	private GatewayService gatewayService;
 	private GatewayInfo gatewayInfo;
+	private static boolean storaged = false;
 
 	public ControlSendGatewayInformation() {
 		gatewayService = new GatewayService();
