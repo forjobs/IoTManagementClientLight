@@ -22,7 +22,7 @@ import com.google.gson.Gson;
 public class GatewayService {
 	private Gateway gateway;
 	private GatewayInfo gatewayInfo;
-//	private String ip = "192.168.0.131:8181";
+	// private String ip = "192.168.0.131:8181";
 	private String ip = "192.168.1.101:8181";
 
 	public GatewayService() {
@@ -89,15 +89,21 @@ public class GatewayService {
 	 * @author Nilson Rodrigues Sousa
 	 * @param gatewaySend
 	 *            Gateway - Information to be sent
+	 * @return boolean - Returns true if the information was received by the
+	 *         server
 	 */
-	public void sendGatewayAdd(Gateway gatewaySend) {
+	public boolean sendGatewayAdd(Gateway gatewaySend) {
 		System.out.println(">>>>Sending sendGatewayInformationAdd");
 
 		try {
-			this.sendData("http://" + ip + "/cxf/informationgateway/addgateway", gatewaySend);
+			if (this.sendDataRegister("http://" + ip + "/cxf/informationgateway/addgateway", gatewaySend)) {
+				return true;
+			}
 		} catch (Exception e) {
 			System.out.println("Error in submitting gateway information add: " + e);
 		}
+
+		return false;
 	}
 
 	/**
@@ -112,22 +118,67 @@ public class GatewayService {
 		System.out.println(">>>>Sending sendGatewayInformationAltered");
 
 		try {
-			this.sendData("http://" + ip + "/cxf/informationgateway/altergatewayinformation", gatewaySend);
+			this.sendDataAltered("http://" + ip + "/cxf/informationgateway/altergatewayinformation", gatewaySend);
 		} catch (Exception e) {
 			System.out.println("Error in submitting gateway information altered: " + e);
 		}
 	}
 
 	/**
-	 * Method responsible for assembling the message and sending it to the
-	 * server
+	 * Method responsible for assembling the message for registration gateway
+	 * and sending it to the server
 	 * 
 	 * @author Nilson Rodrigues Sousa
-	 * @param url String - URL to be sent
-	 * @param gateway Gateway - Content for message assembly
+	 * @param url
+	 *            String - URL to be sent
+	 * @param gateway
+	 *            Gateway - Content for message assembly
+	 * @return boolean - Returns true if the message was received by the server
+	 */
+	public boolean sendDataRegister(String url, Gateway gateway) throws Exception {
+
+		String output = null;
+		try {
+			HttpClient client = new HttpClient();
+			PostMethod mPost = new PostMethod(url);
+
+			Gson gson = new Gson();
+
+			String jsonInString = gson.toJson(gateway);
+
+			mPost.setRequestEntity(new StringRequestEntity(jsonInString, null, null));
+
+			Header mtHeader = new Header();
+			mtHeader.setName("content-type");
+			mtHeader.setValue("application/x-www-form-urlencoded");
+			mtHeader.setName("accept");
+			mtHeader.setValue("application/json");
+			mPost.addRequestHeader(mtHeader);
+			client.executeMethod(mPost);
+			output = mPost.getResponseBodyAsString();
+			mPost.releaseConnection();
+			if (output.equals("true")) {
+				return true;
+			}
+		} catch (Exception e) {
+			throw new Exception("Exception in adding bucket : " + e);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Method responsible for assembling the message to change information and
+	 * sending it to the server
+	 * 
+	 * @author Nilson Rodrigues Sousa
+	 * @param url
+	 *            String - URL to be sent
+	 * @param gateway
+	 *            Gateway - Content for message assembly
 	 * 
 	 */
-	public void sendData(String url, Gateway gateway) throws Exception {
+	public void sendDataAltered(String url, Gateway gateway) throws Exception {
 		try {
 			HttpClient client = new HttpClient();
 			PostMethod mPost = new PostMethod(url);

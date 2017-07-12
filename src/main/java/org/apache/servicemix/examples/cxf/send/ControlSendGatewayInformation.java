@@ -15,7 +15,7 @@ public class ControlSendGatewayInformation {
 	private static Gateway gateway;
 	private GatewayService gatewayService;
 	private GatewayInfo gatewayInfo;
-	private static boolean storaged = false;
+	public static boolean storaged = false;
 
 	public ControlSendGatewayInformation() {
 		gatewayService = new GatewayService();
@@ -33,7 +33,7 @@ public class ControlSendGatewayInformation {
 
 		Gateway gatewayCompare = new Gateway();
 
-		if (gateway == null) {
+		if (gateway == null || storaged == false) {
 			gateway = new Gateway();
 
 			gateway.setDescription(gatewayInfo.getDescription());
@@ -49,7 +49,10 @@ public class ControlSendGatewayInformation {
 			gateway.setListBundler(null);
 			gateway.setListService(null);
 
-			gatewayService.sendGatewayAdd(gateway);
+			if(gatewayService.sendGatewayAdd(gateway)) {
+				storaged = true;
+			}
+			
 		} else {
 			// returns the gateway information
 			gatewayCompare.setDescription(gatewayInfo.getDescription());

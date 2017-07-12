@@ -27,7 +27,7 @@ public class ServiceService {
 
 	private List<Service> listService;
 	private ServiceInfo serviceInfo;
-	private String ip = "192.168.0.131:8181";
+	private String ip = "192.168.1.101:8181";
 
 	public ServiceService() {
 		System.out.println("Service monitoring started.");

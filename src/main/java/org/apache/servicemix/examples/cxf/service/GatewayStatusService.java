@@ -23,7 +23,8 @@ import com.google.gson.Gson;
 public class GatewayStatusService {
 	private GatewayStatus gatewayStatus;
 	private GatewayStatusInfo gatewayStatusInfo;
-	private String ip = "192.168.0.131:8181";
+//	private String ip = "192.168.0.131:8181";
+	private String ip = "192.168.1.101:8181";
 
 	public GatewayStatusService() {
 		System.out.println("GatewayStatus monitoring started.");
@@ -49,7 +50,7 @@ public class GatewayStatusService {
 		gatewayStatus.setFreeMemory(gatewayStatusInfo.getFreeMemory());
 		gatewayStatus.setUsedProcessor(gatewayStatusInfo.getUsedProcessor());
 		gatewayStatus.setFreeProcessor(gatewayStatusInfo.getFreeProcessor());
-		gatewayStatus.setLastUpdate(gatewayStatusInfo.getLastUpdate());
+		gatewayStatus.setDate(gatewayStatusInfo.getDate());
 		gatewayStatus.setMac(gatewayStatusInfo.getMac());
 
 		return gatewayStatus;

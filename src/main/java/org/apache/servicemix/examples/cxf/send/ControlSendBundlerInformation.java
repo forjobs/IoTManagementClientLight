@@ -38,52 +38,55 @@ public class ControlSendBundlerInformation {
 	 * @author Nilson Rodrigues Sousa
 	 */
 	public void compareInfoBundler() {
-		List<Bundler> listCapt = new ArrayList<Bundler>();
+		if (ControlSendGatewayInformation.storaged == true) {
 
-		for (Bundler tr : bundlerInfo.getListBundler()) {
-			Bundler b = new Bundler();
+			List<Bundler> listCapt = new ArrayList<Bundler>();
 
-			b.setName(tr.getName());
-			b.setLocation(tr.getLocation());
-			b.setState(tr.getState());
-			b.setVersion(tr.getVersion());
+			for (Bundler tr : bundlerInfo.getListBundler()) {
+				Bundler b = new Bundler();
 
-			listCapt.add(b);
-		}
+				b.setName(tr.getName());
+				b.setLocation(tr.getLocation());
+				b.setState(tr.getState());
+				b.setVersion(tr.getVersion());
 
-		if (listBundlers.isEmpty() || listBundlers == null) {
-			listBundlers.addAll(listCapt);
-
-			GatewayInfo gatewayInfo = new GatewayInfo();
-			
-			Gateway gatewaySend = new Gateway();
-			gatewaySend.setMac(gatewayInfo.getMac());
-			gatewaySend.setLastUpdate(gatewayInfo.getLastUpdate());
-			gatewaySend.getListBundler().addAll(listBundlers);
-			
-			// sending information for the first time
-			bundlerService.sendListBundlerConnected(gatewaySend);
-		} else {
-			List<Bundler> listBundlersIntance = listCapt;
-
-			List<Bundler> listBundlersDisconnected = this.compareToBundles(listBundlers, listBundlersIntance);
-
-			List<Bundler> listBundlersConnected = this.compareToBundles(listBundlersIntance, listBundlers);
-
-			List<Bundler> listInformationAltered = this.compareToInformation(listBundlersIntance, listBundlers);
-
-			if (!(listBundlersDisconnected.isEmpty() || listBundlersDisconnected == null)) {
-				this.infoBundlerDisconnected(listBundlersDisconnected);
+				listCapt.add(b);
 			}
 
-			if (!(listBundlersConnected.isEmpty() || listBundlersConnected == null)) {
-				this.infoBundlerConnected(listBundlersConnected);
-			}
+			if (listBundlers.isEmpty() || listBundlers == null) {
+				listBundlers.addAll(listCapt);
 
-			if (!(listInformationAltered.isEmpty() || listInformationAltered == null)) {
-				this.infoBundlerAltered(listInformationAltered);
-			}
+				GatewayInfo gatewayInfo = new GatewayInfo();
 
+				Gateway gatewaySend = new Gateway();
+				gatewaySend.setMac(gatewayInfo.getMac());
+				gatewaySend.setLastUpdate(gatewayInfo.getLastUpdate());
+				gatewaySend.getListBundler().addAll(listBundlers);
+
+				// sending information for the first time
+				bundlerService.sendListBundlerConnected(gatewaySend);
+			} else {
+				List<Bundler> listBundlersIntance = listCapt;
+
+				List<Bundler> listBundlersDisconnected = this.compareToBundles(listBundlers, listBundlersIntance);
+
+				List<Bundler> listBundlersConnected = this.compareToBundles(listBundlersIntance, listBundlers);
+
+				List<Bundler> listInformationAltered = this.compareToInformation(listBundlersIntance, listBundlers);
+
+				if (!(listBundlersDisconnected.isEmpty() || listBundlersDisconnected == null)) {
+					this.infoBundlerDisconnected(listBundlersDisconnected);
+				}
+
+				if (!(listBundlersConnected.isEmpty() || listBundlersConnected == null)) {
+					this.infoBundlerConnected(listBundlersConnected);
+				}
+
+				if (!(listInformationAltered.isEmpty() || listInformationAltered == null)) {
+					this.infoBundlerAltered(listInformationAltered);
+				}
+
+			}
 		}
 
 	}
@@ -185,8 +188,8 @@ public class ControlSendBundlerInformation {
 	 * @author Nilson Rodrigues Sousa
 	 * @param l1
 	 *            List<Bundler>, l2 List<Bundler>
-	 * @return List<Bundler> - Returns elements of the
-	 *         first list that does not exist in the second
+	 * @return List<Bundler> - Returns elements of the first list that does not
+	 *         exist in the second
 	 */
 	public List<Bundler> compareToBundles(List<Bundler> l1, List<Bundler> l2) {
 		List<Bundler> result = new ArrayList<Bundler>();
@@ -213,8 +216,7 @@ public class ControlSendBundlerInformation {
 	 * @author Nilson Rodrigues Sousa
 	 * @param l1
 	 *            List<Bundler>, l2 List<Bundler>
-	 * @return List<Bundler> - Returns bundles with changed
-	 *         information
+	 * @return List<Bundler> - Returns bundles with changed information
 	 */
 	public List<Bundler> compareToInformation(List<Bundler> l1, List<Bundler> l2) {
 		List<Bundler> result = new ArrayList<Bundler>();
@@ -231,7 +233,7 @@ public class ControlSendBundlerInformation {
 					break;
 				}
 			}
-			//ALTER - within the conditional
+			// ALTER - within the conditional
 			if (exist == false) {
 				result.add(b1);
 			}

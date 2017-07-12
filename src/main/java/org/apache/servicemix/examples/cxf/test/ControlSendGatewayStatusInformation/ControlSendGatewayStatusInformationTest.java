@@ -67,7 +67,7 @@ public class ControlSendGatewayStatusInformationTest {
 			}
 			
 			if(modify == true) {
-				gatewaySend.setLastUpdate(gatewayStatusCompare.getLastUpdate());
+				gatewaySend.setDate(gatewayStatusCompare.getDate());
 				gatewaySend.setMac(gatewayStatusCompare.getMac());
 				gatewayStatusService.sendGatewayStatus(gatewaySend);
 			}

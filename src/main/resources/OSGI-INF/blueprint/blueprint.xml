@@ -77,23 +77,21 @@
 	<camelContext id="camel"
 		xmlns="http://camel.apache.org/schema/blueprint">
 
-		<!-- <route> final -->
-		<!-- <from uri="timer://myTimer?period=10000" /> -->
-		<!-- <to uri="bean:control_send_bundler_information?method=compareInfoBundler" 
-			/> -->
-		<!-- </route> -->
+		<route>
+			<from uri="timer://myTimer?period=13000" />
+			<to uri="bean:control_send_bundler_information?method=compareInfoBundler" />
+		</route>
 
 		<route>
 			<from uri="timer://myTimer?period=10000" />
 			<to uri="bean:control_send_gateway_information?method=compareInfoGateway" />
 		</route>
 
-		<!-- <route> final -->
-		<!-- <from uri="timer://myTimer?period=10000" /> -->
-		<!-- <to -->
-		<!-- uri="bean:control_send_gateway_status_information?method=compareInfoGatewayStatus" 
-			/> -->
-		<!-- </route> -->
+		<route>
+			<from uri="timer://myTimer?period=16000" />
+			<to
+				uri="bean:control_send_gateway_status_information?method=compareInfoGatewayStatus" />
+		</route>
 
 		<!-- <route> final -->
 		<!-- <from uri="timer://myTimer?period=10000" /> -->

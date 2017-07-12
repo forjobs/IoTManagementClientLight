@@ -1,6 +1,7 @@
 package org.apache.servicemix.examples.cxf.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,12 +13,13 @@ public class Gateway { // class with the gateway properties
 	private String model; // to be defined
 	private String manufacturer; // to be defined
 	private String firmware; // to be defined
-//	private boolean status; // on-off used server side opportunistically
+	// private boolean status; // on-off used server side opportunistically
 	private long storage; // returns the list of components in existing stores
-	private String lastUpdate; // Method for the server side, but the client can
-								// register its actualization if possible
-	
-									// processor capacity
+	private Calendar lastUpdate; // Method for the server side, but the client
+									// can
+									// register its actualization if possible
+
+	// processor capacity
 	// private List<CPU> cpu; // returns information about CPU characteristics
 	private String mac; // returns the mac address
 	private String ip; // returns the ip address
@@ -27,7 +29,7 @@ public class Gateway { // class with the gateway properties
 	// private String[] intefaceNetwork; //returns a list with the existing
 	// network interfaces
 	private List<Service> listService = new ArrayList<Service>();
-	
+
 	public String getDescription() {
 		return description;
 	}
@@ -60,13 +62,13 @@ public class Gateway { // class with the gateway properties
 		this.firmware = firmware;
 	}
 
-//	public boolean isStatus() {
-//		return status;
-//	}
-//
-//	public void setStatus(boolean status) {
-//		this.status = status;
-//	}
+	// public boolean isStatus() {
+	// return status;
+	// }
+	//
+	// public void setStatus(boolean status) {
+	// this.status = status;
+	// }
 
 	public long getStorage() {
 		return storage;
@@ -76,11 +78,11 @@ public class Gateway { // class with the gateway properties
 		this.storage = storage;
 	}
 
-	public String getLastUpdate() {
+	public Calendar getLastUpdate() {
 		return lastUpdate;
 	}
 
-	public void setLastUpdate(String lastUpdate) {
+	public void setLastUpdate(Calendar lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
 
@@ -92,7 +94,6 @@ public class Gateway { // class with the gateway properties
 	// this.cpu = cpu;
 	// }
 
-	
 	public String getMac() {
 		return mac;
 	}
@@ -140,7 +141,7 @@ public class Gateway { // class with the gateway properties
 	// public void setIntefaceNetwork(String[] intefaceNetwork) {
 	// this.intefaceNetwork = intefaceNetwork;
 	// }
-	
+
 	public List<Service> getListService() {
 		return listService;
 	}
@@ -148,5 +149,5 @@ public class Gateway { // class with the gateway properties
 	public void setListService(List<Service> listService) {
 		this.listService = listService;
 	}
-	
+
 }

@@ -1,75 +1,77 @@
 package org.apache.servicemix.examples.cxf.model;
 
+import java.util.Calendar;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "GatewayStatus")
 public class GatewayStatus {
 
-	private String baterryLevel;
-	private String totalMemory;
-	private String usedMemory;
-	private String freeMemory;
-	private String usedProcessor;
-	private String freeProcessor;
+	private double baterryLevel;
+	private long totalMemory;
+	private long usedMemory;
+	private long freeMemory;
+	private double usedProcessor;
+	private double freeProcessor;
 
-	private String lastUpdate;
+	private Calendar date;
 
 	private String mac;
 
-	public String getBaterryLevel() {
+	public double getBaterryLevel() {
 		return baterryLevel;
 	}
 
-	public void setBaterryLevel(String baterryLevel) {
+	public void setBaterryLevel(double baterryLevel) {
 		this.baterryLevel = baterryLevel;
 	}
 
-	public String getTotalMemory() {
+	public long getTotalMemory() {
 		return totalMemory;
 	}
 
-	public void setTotalMemory(String totalMemory) {
+	public void setTotalMemory(long totalMemory) {
 		this.totalMemory = totalMemory;
 	}
 
-	public String getUsedMemory() {
+	public long getUsedMemory() {
 		return usedMemory;
 	}
 
-	public void setUsedMemory(String usedMemory) {
+	public void setUsedMemory(long usedMemory) {
 		this.usedMemory = usedMemory;
 	}
 
-	public String getFreeMemory() {
+	public long getFreeMemory() {
 		return freeMemory;
 	}
 
-	public void setFreeMemory(String freeMemory) {
+	public void setFreeMemory(long freeMemory) {
 		this.freeMemory = freeMemory;
 	}
 
-	public String getUsedProcessor() {
+	public double getUsedProcessor() {
 		return usedProcessor;
 	}
 
-	public void setUsedProcessor(String usedProcessor) {
+	public void setUsedProcessor(double usedProcessor) {
 		this.usedProcessor = usedProcessor;
 	}
 
-	public String getFreeProcessor() {
+	public double getFreeProcessor() {
 		return freeProcessor;
 	}
 
-	public void setFreeProcessor(String freeProcessor) {
+	public void setFreeProcessor(double freeProcessor) {
 		this.freeProcessor = freeProcessor;
 	}
 
-	public String getLastUpdate() {
-		return lastUpdate;
+	public Calendar getDate() {
+		return date;
 	}
 
-	public void setLastUpdate(String lastUpdate) {
-		this.lastUpdate = lastUpdate;
+	public void setDate(Calendar date) {
+		this.date = date;
 	}
 
 	public String getMac() {

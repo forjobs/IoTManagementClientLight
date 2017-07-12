@@ -48,7 +48,14 @@ public class BundlerInfo implements BundlerInfoInterface{
 			
 			listBundle = bundleService.selectBundles(context, ids, defaultAllBundles);
 			
+			//temporario apenas para limitar o n de bundles enviados
+			int cont = 0;
+			
 			for (Bundle bundle : listBundle) {
+				
+				if(cont == 8)
+					break;
+				
 				bundler = new Bundler();
 				BundleInfo info = this.bundleService.getInfo(bundle);
 
@@ -60,6 +67,8 @@ public class BundlerInfo implements BundlerInfoInterface{
 					bundler.setLocation(info.getUpdateLocation());
 
 				}
+				
+				cont++;
 				
 				listBundler.add(bundler);		
 			}

@@ -1,6 +1,7 @@
 package org.apache.servicemix.examples.cxf.info;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -74,8 +75,9 @@ public class GatewayInfo {
 
 	// method for the server side, but the client can register its actualization
 	// if possible
-	public String getLastUpdate() {
-		return InfraUtil.getDateHour();
+	public Calendar getLastUpdate() {
+		return Calendar.getInstance();
+		//return InfraUtil.getDateHour();
 	}
 
 	// returns information about CPU characteristics
